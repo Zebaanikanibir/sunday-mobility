@@ -12,10 +12,10 @@ const Register = () => {
   const onSubmit = data => {
     
         const newData = [...userData,data]
-    setUserData(newData)
+    
     console.log('new',newData)
     localStorage.setItem('data',JSON.stringify(newData));
-  
+  setUserData(newData)
     console.log('data',data)
     alert('Registered successfully')
     
