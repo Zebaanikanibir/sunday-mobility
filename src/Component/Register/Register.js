@@ -12,9 +12,9 @@ const Register = () => {
     const { register, handleSubmit, formState: { errors } } = useForm();
     
   const onSubmit = data => {
-// if(user===null){
-// 			user=[{'name':'aaa','password':'aaa'},];
-// 		}
+if(user===null){
+			user=[{'name':'aaa','password':'aaa'},];
+		}
 			
 		
 			
