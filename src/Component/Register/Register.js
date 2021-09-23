@@ -4,21 +4,21 @@ import { Link } from 'react-router-dom';
 import image from '../../image/photo-1507525428034-b723cf961d3e.jpg'
 import '../Style.css';
 const Register = () => {
-    const [userData, setUserData] = useState([]);
+    
 	
 	
     const { register, handleSubmit, formState: { errors } } = useForm();
-    
+    var userData = JSON.parse(localStorage.getItem('data'));
   const onSubmit = data => {
-    if(data){
-        const newData = [...userData,data]
-    setUserData(newData)
     
+        const newData = [...userData,data]
+  
+    console.log('new',newData)
     localStorage.setItem('data',JSON.stringify(newData));
-  console.log(true)
+  
     console.log('data',data)
     alert('Registered successfully')
-    }
+    
   };
   return (
     <div className="home">
