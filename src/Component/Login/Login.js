@@ -15,11 +15,12 @@ const Login = () => {
 		}
 			
 			
-		const same = userData.filter(d=>d.name===data.name);
+		const same = userData.filter(d=>d.password===data.password);
 
 		console.log('same',same)
 
-			if (same[0].password===data.password){
+			if(same.length!==0){
+                if (same[0].password===data.password){
                 alert('right password.');
 				localStorage.setItem('userlogined',data.name);
 				
@@ -29,6 +30,7 @@ const Login = () => {
 			else{
 				alert('wrong password.');
 			}
+            }
 		
 
     };
@@ -50,8 +52,8 @@ const Login = () => {
       {errors.name && errors.name.type === "maxLength" && <span>Max length exceeded</span> }<br/>
       <label className="labelStyle" htmlFor="password">Password</label><br/>
       <input className="inputStyle"  id="password" type="password" name="password"{...register('password', { required: true, maxLength: 30 })} />
-      {errors.password && errors.name.type === "required" && <span>This is required</span>}
-      {errors.password && errors.name.type === "maxLength" && <span>Max length exceeded</span> }
+      {errors.password && errors.password.type === "required" && <span>This is required</span>}
+      {errors.password && errors.password.type === "maxLength" && <span>Max length exceeded</span> }
 
 <br/>
 
