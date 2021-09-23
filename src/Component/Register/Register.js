@@ -16,9 +16,8 @@ if(user===null){
 			user=[{'name':'aaa','password':'aaa'},];
 		}
 			
-		
-			
-			const same = user.filter(d=>d.name===data.name);
+		if(data){
+            const same = user.filter(d=>d.name===data.name);
 
 			if(same.length===0){
 				user = [...user,{'name':data.name,'password':data.password}]
@@ -29,6 +28,9 @@ localStorage.setItem('data',JSON.stringify(user));
 			}else{
 				alert(data.name+' exist!')
 			}
+        }
+			
+			
 		
 
 
