@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom';
 import image from '../../image/photo-1507525428034-b723cf961d3e.jpg'
 import '../Style.css';
 const Register = () => {
-    
+    const [userData, setUserData] = useState([]);
 	
 	
     const { register, handleSubmit, formState: { errors } } = useForm();
@@ -12,7 +12,7 @@ const Register = () => {
   const onSubmit = data => {
     
         const newData = [...userData,data]
-  
+    setUserData(newData)
     console.log('new',newData)
     localStorage.setItem('data',JSON.stringify(newData));
   
