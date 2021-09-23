@@ -2,6 +2,7 @@ import React, { useState } from 'react'
 import { useForm } from 'react-hook-form';
 import { Link } from 'react-router-dom';
 import image from '../../image/photo-1507525428034-b723cf961d3e.jpg'
+import User from '../../Component/User/User'
 const Login = () => {
     const [showForm, setShowForm] =useState(true)
     const [userDetails, setUserDetails] =useState(false)
@@ -23,6 +24,7 @@ const Login = () => {
 				localStorage.setItem('userlogined',data.name);
 				
 				setShowForm(false)
+                setUserDetails(true)
 			}
 			else{
 				alert('wrong password.');
@@ -38,7 +40,7 @@ const Login = () => {
       </div>
      <div>
       {
-          showForm?
+          showForm &&
          (
            <div className="form">
       <form onSubmit={handleSubmit(onSubmit)}>
@@ -60,15 +62,20 @@ const Login = () => {
     <Link to="/register">Register</Link>
 
       </div>   
-         ):(
-             <div className="form">
-             {
-                 userData.map(data=><li>{data.name}</li>)
-             }
-             </div>
          )
       }
-
+{
+    userDetails &&
+    (
+    
+             <div className="form">
+             {
+                 userData.map(data=><User data={data}></User>)
+             }
+             </div>
+         
+    )
+}
      </div>
 
     </div>
