@@ -15,7 +15,7 @@ const Login = () => {
 		}
 			
 			
-		const same = userData.filter(d=>d.name===data.name);
+		const same = userData.filter(d=>d.email===data.email);
 
 		console.log('same',same)
 
@@ -46,10 +46,10 @@ const Login = () => {
          (
            <div className="form">
       <form onSubmit={handleSubmit(onSubmit)}>
-      <label className="labelStyle" htmlFor="name">Name</label> <br/>
-      <input className="inputStyle" id="name" type="text" name="name"{...register('name', { required: true, maxLength: 30 })} />
-      {errors.name && errors.name.type === "required" && <span>This is required</span>}
-      {errors.name && errors.name.type === "maxLength" && <span>Max length exceeded</span> }<br/>
+     <label className="labelStyle" htmlFor="email">Email</label><br/>
+      <input className="inputStyle"  id="email" type="email" name="email"{...register('email', { required: true, maxLength: 30 })} />
+      {errors.email && errors.email.type === "required" && <span style={{color:'red'}}>This is required</span>}
+      {errors.email && errors.email.type === "maxLength" && <span style={{color:'red'}}>Max length exceeded</span> }<br/>
       <label className="labelStyle" htmlFor="password">Password</label><br/>
       <input className="inputStyle"  id="password" type="password" name="password"{...register('password', { required: true, maxLength: 30 })} />
       {errors.password && errors.password.type === "required" && <span>This is required</span>}

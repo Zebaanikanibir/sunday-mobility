@@ -9,19 +9,19 @@ const Register = () => {
     
 	
 	
-    const { register, handleSubmit, formState: { errors } } = useForm();
+      const { register, handleSubmit, formState: { errors } } = useForm();
     
-  const onSubmit = data => {
-if(user===null){
-			user=[{'name':'aaa','password':'123bnm123@'},];
+     const onSubmit = data => {
+        if(user===null){
+			user=[{'name':'abc','email':'sanjida@gmail.com','password':'123bnm123@'},];
 		}
 			
 		if(data){
-            const same = user.filter(d=>d.name===data.name);
+            const same = user.filter(d=>d.email===data.email);
 
 			if(same.length===0){
-				user = [...user,{'name':data.name,'password':data.password}]
-localStorage.setItem('data',JSON.stringify(user));
+				user = [...user,{'name':data.name,'email':data.email,'password':data.password}]
+       localStorage.setItem('data',JSON.stringify(user));
   
     console.log('data',data)
     alert('Registered successfully')
