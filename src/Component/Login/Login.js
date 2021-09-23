@@ -15,7 +15,7 @@ const Login = () => {
 		}
 			
 			
-		const same = userData.filter(d=>d.password===data.password && d.name===data.name);
+		const same = userData.filter(d=>d.name===data.name);
 
 		console.log('same',same)
 

@@ -5,21 +5,37 @@ import image from '../../image/photo-1507525428034-b723cf961d3e.jpg'
 import '../Style.css';
 const Register = () => {
 
-    	const user = JSON.parse(localStorage.getItem('data'));
-    const [userData, setUserData] = useState(user);
+    	var user = JSON.parse(localStorage.getItem('data'));
+    
 	
 	
     const { register, handleSubmit, formState: { errors } } = useForm();
     
   const onSubmit = data => {
-    
-        const newData = [...userData,{'name':data.name,'password':data.password}]
-    setUserData(newData)
-    console.log('new',newData)
-    localStorage.setItem('data',JSON.stringify(newData));
+// if(user===null){
+// 			user=[{'name':'aaa','password':'aaa'},];
+// 		}
+			
+		
+			
+			const same = user.filter(d=>d.name===data.name);
+
+			if(same.length===0){
+				user = [...user,{'name':data.name,'password':data.password}]
+localStorage.setItem('data',JSON.stringify(user));
   
     console.log('data',data)
     alert('Registered successfully')
+			}else{
+				alert(data.name+' exist!')
+			}
+		
+
+
+
+
+       
+   
     
   };
   return (
