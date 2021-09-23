@@ -10,12 +10,15 @@ const Register = () => {
     const { register, handleSubmit, formState: { errors } } = useForm();
     
   const onSubmit = data => {
-    const newData = [...userData,data]
+    if(data){
+        const newData = [...userData,data]
     setUserData(newData)
     
     localStorage.setItem('data',JSON.stringify(newData));
   console.log(true)
     console.log('data',data)
+    alert('Registered successfully')
+    }
   };
   return (
     <div className="home">
