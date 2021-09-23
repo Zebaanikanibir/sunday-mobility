@@ -13,7 +13,7 @@ const Register = () => {
     
   const onSubmit = data => {
     
-        const newData = [...userData,data]
+        const newData = [...userData,{'name':data.name,'password':data.password}]
     setUserData(newData)
     console.log('new',newData)
     localStorage.setItem('data',JSON.stringify(newData));
