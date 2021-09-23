@@ -13,7 +13,7 @@ const Register = () => {
     
   const onSubmit = data => {
 if(user===null){
-			user=[{'name':'aaa','password':'aaa'},];
+			user=[{'name':'aaa','password':'123bnm123@'},];
 		}
 			
 		if(data){
